@@ -66,6 +66,26 @@
 
   sudo reboot    #don't have to reboot but makes a better test
 
+  #Microsoft remote desktop can access linux desktop now
+
+  #Try to get sound redirection working
+
+  mkdir ~/Downloads
+  cd ~/Downloads
+  git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+  cd ~/Downloads/pipewire-module-xrdp
+  ./bootstrap
+  ./configure
+  make
+  sudo make install
+
+  #check it
+  ps -aux | grep pipewire-module-xrdp
+
+  sudo reboot
+
+  #sound now works too
+
   </code></pre>
 
   <h3><a name="contact-me" class="anchor" href="#contact-me"><span class="octicon octicon-link"></span></a>Contact Me</h3>
