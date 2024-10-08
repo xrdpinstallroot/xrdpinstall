@@ -40,10 +40,33 @@
   section titled Arch-XFCE-SystemD. Also please email us with any steps you come up with that we can include in this document.
   </p>
 
-  <h3><a name="arch-xfceE-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Arch-XFCE-SystemD</h3>
+  <h3><a name="arch-xfceE-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Arch-XFCE-SystemD using Pacman</h3>
 
   <pre><code>
-  apt-get install runit
+  sudo pacman -Syu
+
+  #Install Yay
+  sudo pacman -S base-devel go
+  mkdir -p ~/work/aur ; cd ~/work/aur
+  su
+  pacman -Syu
+  pacman -S git    #if needed
+  exit
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg
+  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
+
+  yay xrdp
+  yay xorgxrdp
+
+  nano ~/.xinitrc
+  exec startxfce4      #add this line to new file
+
+  sudo systemctl enable --now xrdp
+
+  sudo reboot    #don't have to reboot but makes a better test
+
   </code></pre>
 
   <h3><a name="contact-me" class="anchor" href="#contact-me"><span class="octicon octicon-link"></span></a>Contact Me</h3>
