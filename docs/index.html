@@ -386,6 +386,43 @@
   </code></pre>
 
         
+
+
+  <h3><a name="artix-xfce-manual" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Artix-XFCE-manual using pacman</h3>
+
+  <pre><code>
+
+  #Install git
+  sudo pacman -Syu git
+
+  #Install Yay
+  sudo pacman -S base-devel go
+  mkdir -p ~/work/aur ; cd ~/work/aur
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg
+  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
+
+  #Install xrdp
+  yay xrdp
+  yay xorgxrdp
+
+  #Manually start these processes
+  sudo /usr/bin/xrdp-sesman
+  sudo /usr/bin/xrdp
+
+  #check on them
+  ps -aux | grep xrdp-sesman
+  ps -aux | grep xrdp
+
+  nano ~/.xinitrc
+  exec startxfce4      #add this line to new file if using xfce
+
+  xrdp works now
+
+  </code></pre>
+
+
         
         
         
