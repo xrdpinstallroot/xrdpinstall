@@ -449,6 +449,42 @@
 
 
 
+
+
+  <h3><a name="debian-xfce-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Debian-XFCE-SystemD using apt install</h3>
+
+  <pre><code>
+
+  sudo apt update
+
+  sudo apt install xrdp
+  sudo apt install xorgxrdp
+
+  sudo reboot
+
+  #xrdp works with those few commands above, but sound not working yet
+
+  pactl    info          #says pulseaudio, so debian still using pulseaudio
+
+  sudo apt install build-essential dpkg-dev libpulse-dev git autoconf libtool
+  cd ~
+  git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git
+  cd ~/pulseaudio-module-xrdp
+  scripts/install_pulseaudio_sources_apt_wrapper.sh    #Output shows: PULSE_DIR=/home/user/pulseaudio.src
+  ./bootstrap && ./configure PULSE_DIR=~/pulseaudio.src
+  make
+  sudo make install
+  ls $(pkg-config --variable=modlibexecdir libpulse) | grep xrdp
+  #If the module-xrdp-sink.so and module-xrdp-source.so are listed then
+  #this means that the PulseAudio modules have been properly built and installed on your system
+
+  sudo reboot
+
+  #audio works now too
+
+  </code></pre>
+
+
         
         
   <h3><a name="contact" class="anchor" href="#contact-me"><span class="octicon octicon-link"></span></a>Contact:</h3>
