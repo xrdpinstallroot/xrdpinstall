@@ -157,6 +157,12 @@
 
   sudo systemctl enable --now xrdp
 
+  sudo nano /etc/X11/Xwrapper.config
+  # Should say:
+  allowed_users = anybody
+
+  sudo ufw allow 3389
+
   sudo reboot    #don't have to reboot but makes a better test
 
   #Microsoft remote desktop can access linux desktop now
