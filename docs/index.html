@@ -133,6 +133,47 @@
         
         
         
+
+
+  <h3><a name="cachy-xfceE-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Cachy-XFCE-SystemD using Pacman</h3>
+
+  <pre><code>
+  #Refresh/upgrade
+  sudo pacman -Syu
+
+  yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
+  yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
+
+  nano ~/.xinitrc
+  exec startxfce4      #add this line to new file
+
+  sudo systemctl enable --now xrdp
+
+  sudo reboot    #don't have to reboot but makes a better test
+
+  #Microsoft remote desktop can access linux desktop now
+
+  #Try to get sound redirection working
+
+  mkdir ~/Downloads
+  cd ~/Downloads
+  git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+  cd ~/Downloads/pipewire-module-xrdp
+  ./bootstrap
+  ./configure
+  make
+  sudo make install
+
+  sudo reboot
+
+  #check it
+  ps -aux | grep pipewire-module-xrdp
+
+  #Sound now works too
+
+  </code></pre>
+
+
         
         
   <h3><a name="contact-me" class="anchor" href="#contact-me"><span class="octicon octicon-link"></span></a>Contact Me</h3>
