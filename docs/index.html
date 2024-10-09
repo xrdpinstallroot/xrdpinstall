@@ -340,7 +340,47 @@
 
   <pre><code>
 
-  
+  #open ports
+  sudo ufw allow from any to any port 3389 proto tcp
+  sudo ufw status
+
+  #install xrdp software
+  sudo apt install -y xrdp xorgxrdp
+
+  #Needed for linux mx
+  sudo nano /etc/xrdp/startwm.sh
+  #test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+  #exec /bin/sh /etc/X11/Xsession
+  startxfce4
+
+  sudo service xrdp restart
+
+  #Can use MX Service Manager in DE to see which services are enabled - very useful
+
+  sudo reboot
+
+  #setup sound
+
+  sudo apt install pulseaudio
+  ps -aux | grep pulse*
+
+  sudo apt install build-essential dpkg-dev libpulse-dev git autoconf libtool
+  cd ~
+  git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git
+  cd ~/pulseaudio-module-xrdp
+  scripts/install_pulseaudio_sources_apt_wrapper.sh    #PULSE_DIR=/home/user/pulseaudio.src
+  ./bootstrap && ./configure PULSE_DIR=~/pulseaudio.src
+  make
+  sudo make install
+  #Below command works after the above is installed
+  ls $(pkg-config --variable=modlibexecdir libpulse) | grep xrdp                       #If the module-xrdp-sink.so and module-xrdp-source.so are listed, this means that the PulseAudio modules have been properly built and installed on your system
+
+  ps -aux | grep pulse
+
+  sudo reboot
+
+  #Sound is working with pulseaudio
+  #Some glitchyness with audio/video
 
   </code></pre>
 
