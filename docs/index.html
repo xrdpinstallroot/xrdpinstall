@@ -306,6 +306,34 @@
 
 
 
+
+
+  <h3><a name="mint-xfce-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Mint-XFCE-SystemD using Pacman</h3>
+
+  <pre><code>
+
+  sudo apt update
+
+  sudo ufw allow from any to any port 3389 proto tcp
+
+  sudo apt install xrdp
+  sudo apt install xorgxrdp
+
+  #Needed for Mint
+  sudo adduser xrdp ssl-cert
+
+  sudo systemctl enable xrdp
+
+  sudo reboot
+
+  #RDP works now
+  #Didn't need to do anything special for sound, it just works.
+
+  </code></pre>
+
+
+
+
         
         
         
