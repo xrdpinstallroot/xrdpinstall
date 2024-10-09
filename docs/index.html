@@ -433,14 +433,14 @@
   <pre><code>
 
   sudo zypper install xrdp xorgxrdp
-	sudo systemctl enable xrdp
-	sudo systemctl start xrdp
+  sudo systemctl enable xrdp
+  sudo systemctl start xrdp
 
   sudo systemctl status firewalld
-	sudo firewall-cmd --permanent --zone=public --add-port=3389/tcp
-	sudo firewall-cmd --reload
+  sudo firewall-cmd --permanent --zone=public --add-port=3389/tcp
+  sudo firewall-cmd --reload
 
-  echo "xfce4-session" > /home/YOUR_USERNAME/.xsession
+  echo "xfce4-session" > ~/.xsession
 
   #Need to retest these and add audio instructions  
 
