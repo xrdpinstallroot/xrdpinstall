@@ -277,10 +277,10 @@
   sudo systemctl enable --now xrdp
 
   #These commands were needed on Manjaro since permissions were restrictive
-  chmod g+r /etc/xrdp/cert.pem
-  chmod g+r /etc/xrdp/key.pem
-  chmod o+r /etc/xrdp/cert.pem
-  chmod o+r /etc/xrdp/key.pem
+  sudo chmod g+r /etc/xrdp/cert.pem
+  sudo chmod g+r /etc/xrdp/key.pem
+  sudo chmod o+r /etc/xrdp/cert.pem
+  sudo chmod o+r /etc/xrdp/key.pem
 
   sudo reboot    #don't have to reboot but makes a better test
 
