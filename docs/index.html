@@ -426,6 +426,29 @@
 
 
         
+
+
+  <h3><a name="tumbleweed-xfce-manual" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>OpenSUSE Tumbleweed-XFCE-SystemD using zypper</h3>
+
+  <pre><code>
+
+  sudo zypper install xrdp xorgxrdp
+	sudo systemctl enable xrdp
+	sudo systemctl start xrdp
+
+  sudo systemctl status firewalld
+	sudo firewall-cmd --permanent --zone=public --add-port=3389/tcp
+	sudo firewall-cmd --reload
+
+  echo "xfce4-session" > /home/YOUR_USERNAME/.xsession
+
+  #Need to retest these and add audio instructions  
+
+  </code></pre>
+
+
+
+
         
         
   <h3><a name="contact" class="anchor" href="#contact-me"><span class="octicon octicon-link"></span></a>Contact:</h3>
