@@ -188,6 +188,63 @@
   </code></pre>
 
 
+
+
+  <h3><a name="cachy-kdeplasma-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Cachy-KDE Plasma-SystemD using Pacman</h3>
+
+  <pre><code>
+  #Refresh/upgrade
+  sudo pacman -Syu
+
+  #Install Yay
+  sudo pacman -S base-devel go
+  mkdir -p ~/work/aur ; cd ~/work/aur
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg
+  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
+    
+  yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
+  yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
+
+  nano ~/.xinitrc
+  #add two lines to new file
+  export DESKTOP_SESSION=plasma
+  /usr/lib/plasma-dbus-run-session-if-needed startplasma-x11
+
+  sudo systemctl enable --now xrdp
+
+  sudo nano /etc/X11/Xwrapper.config
+  # Should say:
+  allowed_users = anybody
+
+  sudo ufw allow 3389
+
+  sudo reboot    #don't have to reboot but makes a better test
+
+  #Microsoft remote desktop can access linux desktop now
+
+  #Try to get sound redirection working
+
+  mkdir ~/Downloads
+  cd ~/Downloads
+  git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+  cd ~/Downloads/pipewire-module-xrdp
+  ./bootstrap
+  ./configure
+  make
+  sudo make install
+
+  sudo reboot
+
+  #check it
+  ps -aux | grep pipewire-module-xrdp
+
+  #Sound now works too
+
+  </code></pre>
+        
+
         
         
   <h3><a name="contact-me" class="anchor" href="#contact-me"><span class="octicon octicon-link"></span></a>Contact Me</h3>
