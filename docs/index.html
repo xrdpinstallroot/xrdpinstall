@@ -560,6 +560,113 @@
 
   </code></pre>
 
+
+
+
+
+  
+  <h3><a name="artix-xfce-runit" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Artix-XFCE-Runit using pacman install</h3>
+
+  <pre><code>
+
+  #Install git
+  sudo pacman -Syu git
+
+  #Install Yay
+  sudo pacman -S base-devel go
+  mkdir -p ~/work/aur ; cd ~/work/aur
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg
+  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
+
+  #Install xrdp
+  yay xrdp
+  yay xorgxrdp
+
+  su
+
+  #template - setup run script
+  mkdir /etc/runit/sv/template
+  cat <<EOF > /etc/runit/sv/template/run
+  #!/bin/sh -e
+  exec 2>&1
+  exec chpst -u USER COMMAND
+  EOF
+
+  chmod +x /etc/runit/sv/template/run
+
+  #template - setup log script
+  mkdir /etc/runit/sv/template/log
+  cat <<EOF > /etc/runit/sv/template/log/run
+  #!/bin/sh
+  exec chpst -u USER svlogd -tt LOGDIR
+  EOF
+
+  chmod +x /etc/runit/sv/template/log/run
+
+  #copy template file/dirs
+  cp -R /etc/runit/sv/template /etc/runit/sv/xrdp-sesman
+  cp -R /etc/runit/sv/template /etc/runit/sv/xrdp
+ 
+  cat <<EOF > /etc/runit/sv/xrdp-sesman/run
+  #!/bin/sh -e
+  exec 2>&1
+  exec chpst -u root /usr/bin/xrdp-sesman
+  EOF
+
+  cat <<EOF > /etc/runit/sv/xrdp/run
+  #!/bin/sh -e
+  exec 2>&1
+  exec chpst -u root /usr/bin/xrdp
+  EOF
+
+  cat <<EOF > /etc/runit/sv/xrdp-sesman/log/run
+  #!/bin/sh
+  exec chpst -u root svlogd -tt /var/log/xrdp-sesman.log
+  EOF
+
+  cat <<EOF > /etc/runit/sv/xrdp/log/run
+  #!/bin/sh
+  exec chpst -u root svlogd -tt /var/log/xrdp.log
+  EOF
+
+  sudo ln -s /etc/runit/sv/xrdp-sesman /var/run/runit/service/xrdp-sesman
+  sudo ln -s /etc/runit/sv/xrdp /var/run/runit/service/xrdp
+
+  #To check logs on the two processes
+  #tail -f /var/log/xrdp-sesman.log
+  #tail -f /var/log/xrdp.log
+
+  sudo rm -f /var/run/xrdp.pid
+  sudo rm -f /var/run/xrdp-sesman.pid
+  
+  #to stop service
+  #sv stop xrdp-sesman
+  #sv stop xrdp
+
+  #to remove service
+  #sudo rm /var/run/runit/service/xrdp-sesman
+  #sudo rm /var/run/runit/service/xrdp
+
+  #check on them
+  ps -aux | grep xrdp-sesman
+  ps -aux | grep xrdp
+
+  exit
+
+  cat <<EOF > ~/.xinitrc
+  exec startxfce4
+  EOF
+
+  xrdp works now
+
+  #sound not working here
+  
+  </code></pre>
+
+
+        
         
         
   <h3><a name="contact" class="anchor" href="#contact-me"><span class="octicon octicon-link"></span></a>Contact:</h3>
