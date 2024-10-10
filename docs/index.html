@@ -586,7 +586,7 @@ su
 
 #template - setup run script
 mkdir /etc/runit/sv/template
-cat <<EOF > /etc/runit/sv/template/run
+cat &lt;&lt;EOF &gt; /etc/runit/sv/template/run
 #!/bin/sh -e
 exec 2>&1
 exec chpst -u USER COMMAND
@@ -596,7 +596,7 @@ chmod +x /etc/runit/sv/template/run
 
 #template - setup log script
 mkdir /etc/runit/sv/template/log
-cat <<EOF > /etc/runit/sv/template/log/run
+cat &lt;&lt;EOF &gt; /etc/runit/sv/template/log/run
 #!/bin/sh
 exec chpst -u USER svlogd -tt LOGDIR
 EOF
@@ -607,24 +607,24 @@ chmod +x /etc/runit/sv/template/log/run
 cp -R /etc/runit/sv/template /etc/runit/sv/xrdp-sesman
 cp -R /etc/runit/sv/template /etc/runit/sv/xrdp
 
-cat <<EOF > /etc/runit/sv/xrdp-sesman/run
+cat &lt;&lt;EOF &gt; /etc/runit/sv/xrdp-sesman/run
 #!/bin/sh -e
 exec 2>&1
 exec chpst -u root /usr/bin/xrdp-sesman
 EOF
 
-cat <<EOF > /etc/runit/sv/xrdp/run
+cat &lt;&lt;EOF &gt; /etc/runit/sv/xrdp/run
 #!/bin/sh -e
 exec 2>&1
 exec chpst -u root /usr/bin/xrdp
 EOF
 
-cat <<EOF > /etc/runit/sv/xrdp-sesman/log/run
+cat &lt;&lt;EOF &gt; /etc/runit/sv/xrdp-sesman/log/run
 #!/bin/sh
 exec chpst -u root svlogd -tt /var/log/xrdp-sesman.log
 EOF
 
-cat <<EOF > /etc/runit/sv/xrdp/log/run
+cat &lt;&lt;EOF &gt; /etc/runit/sv/xrdp/log/run
 #!/bin/sh
 exec chpst -u root svlogd -tt /var/log/xrdp.log
 EOF
@@ -653,7 +653,7 @@ ps -aux | grep xrdp
 
 exit
 
-cat <<EOF > ~/.xinitrc
+cat &lt;&lt;EOF &gt; ~/.xinitrc
 exec startxfce4
 EOF
 
