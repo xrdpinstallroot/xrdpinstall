@@ -43,91 +43,91 @@
   <h3><a name="arch-xfce-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Arch-XFCE-SystemD using Pacman</h3>
 
   <pre><code>
-  #Refresh/upgrade
-  sudo pacman -Syu
+#Refresh/upgrade
+sudo pacman -Syu
 
-  #Install Yay
-  sudo pacman -S base-devel go
-  mkdir -p ~/work/aur ; cd ~/work/aur
-  su
-  pacman -S git
-  exit
-  git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg
-  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
+#Install Yay
+sudo pacman -S base-devel go
+mkdir -p ~/work/aur ; cd ~/work/aur
+su
+pacman -S git
+exit
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg
+sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
 
-  yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
-  yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
+yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
+yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
 
-  nano ~/.xinitrc
-  exec startxfce4      #add this line to new file
+nano ~/.xinitrc
+exec startxfce4      #add this line to new file
 
-  sudo systemctl enable --now xrdp
+sudo systemctl enable --now xrdp
 
-  sudo reboot    #don't have to reboot but makes a better test
+sudo reboot    #don't have to reboot but makes a better test
 
-  #Microsoft remote desktop can access linux desktop now
+#Microsoft remote desktop can access linux desktop now
 
-  #Try to get sound redirection working
+#Try to get sound redirection working
 
-  mkdir ~/Downloads
-  cd ~/Downloads
-  git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
-  cd ~/Downloads/pipewire-module-xrdp
-  ./bootstrap
-  ./configure
-  make
-  sudo make install
+mkdir ~/Downloads
+cd ~/Downloads
+git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+cd ~/Downloads/pipewire-module-xrdp
+./bootstrap
+./configure
+make
+sudo make install
 
-  sudo reboot
+sudo reboot
 
-  #check it
-  ps -aux | grep pipewire-module-xrdp
+#check it
+ps -aux | grep pipewire-module-xrdp
 
-  #Sound now works too
+#Sound now works too
 
   </code></pre>
 
 
 
-  <h3><a name="endeavor-xfce-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Endeavor-XFCE-SystemD using Pacman</h3>
+<h3><a name="endeavor-xfce-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Endeavor-XFCE-SystemD using Pacman</h3>
 
-  <pre><code>
-  #Refresh/upgrade
-  sudo pacman -Syu
+<pre><code>
+#Refresh/upgrade
+sudo pacman -Syu
 
-  sudo firewall-cmd --permanent --add-port=3389/tcp
+sudo firewall-cmd --permanent --add-port=3389/tcp
 
-  yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
-  yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
+yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
+yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
 
-  nano ~/.xinitrc
-  exec startxfce4      #add this line to new file
+nano ~/.xinitrc
+exec startxfce4      #add this line to new file
 
-  sudo systemctl enable --now xrdp
+sudo systemctl enable --now xrdp
 
-  sudo reboot    #don't have to reboot but makes a better test
+sudo reboot    #don't have to reboot but makes a better test
 
-  #Microsoft remote desktop can access linux desktop now
+#Microsoft remote desktop can access linux desktop now
 
-  #Try to get sound redirection working
+#Try to get sound redirection working
 
-  mkdir ~/Downloads
-  cd ~/Downloads
-  git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
-  cd ~/Downloads/pipewire-module-xrdp
-  ./bootstrap
-  ./configure
-  make
-  sudo make install
+mkdir ~/Downloads
+cd ~/Downloads
+git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+cd ~/Downloads/pipewire-module-xrdp
+./bootstrap
+./configure
+make
+sudo make install
 
-  sudo reboot
+sudo reboot
 
-  #check it
-  ps -aux | grep pipewire-module-xrdp
+#check it
+ps -aux | grep pipewire-module-xrdp
 
-  #Sound now works too
+#Sound now works too
 
   </code></pre>
         
@@ -138,52 +138,52 @@
   <h3><a name="cachy-xfce-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Cachy-XFCE-SystemD using Pacman</h3>
 
   <pre><code>
-  #Refresh/upgrade
-  sudo pacman -Syu
+#Refresh/upgrade
+sudo pacman -Syu
 
-  #Install Yay
-  sudo pacman -S base-devel go
-  mkdir -p ~/work/aur ; cd ~/work/aur
-  git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg
-  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
-    
-  yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
-  yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
+#Install Yay
+sudo pacman -S base-devel go
+mkdir -p ~/work/aur ; cd ~/work/aur
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg
+sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
 
-  nano ~/.xinitrc
-  exec startxfce4      #add this line to new file
+yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
+yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
 
-  sudo systemctl enable --now xrdp
+nano ~/.xinitrc
+exec startxfce4      #add this line to new file
 
-  sudo nano /etc/X11/Xwrapper.config
-  # Should say:
-  allowed_users = anybody
+sudo systemctl enable --now xrdp
 
-  sudo ufw allow 3389
+sudo nano /etc/X11/Xwrapper.config
+# Should say:
+allowed_users = anybody
 
-  sudo reboot    #don't have to reboot but makes a better test
+sudo ufw allow 3389
 
-  #Microsoft remote desktop can access linux desktop now
+sudo reboot    #don't have to reboot but makes a better test
 
-  #Try to get sound redirection working
+#Microsoft remote desktop can access linux desktop now
 
-  mkdir ~/Downloads
-  cd ~/Downloads
-  git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
-  cd ~/Downloads/pipewire-module-xrdp
-  ./bootstrap
-  ./configure
-  make
-  sudo make install
+#Try to get sound redirection working
 
-  sudo reboot
+mkdir ~/Downloads
+cd ~/Downloads
+git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+cd ~/Downloads/pipewire-module-xrdp
+./bootstrap
+./configure
+make
+sudo make install
 
-  #check it
-  ps -aux | grep pipewire-module-xrdp
+sudo reboot
 
-  #Sound now works too
+#check it
+ps -aux | grep pipewire-module-xrdp
+
+#Sound now works too
 
   </code></pre>
 
@@ -193,54 +193,54 @@
   <h3><a name="cachy-kdeplasma-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Cachy-KDE Plasma-SystemD using Pacman</h3>
 
   <pre><code>
-  #Refresh/upgrade
-  sudo pacman -Syu
+#Refresh/upgrade
+sudo pacman -Syu
 
-  #Install Yay
-  sudo pacman -S base-devel go
-  mkdir -p ~/work/aur ; cd ~/work/aur
-  git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg
-  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
-    
-  yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
-  yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
+#Install Yay
+sudo pacman -S base-devel go
+mkdir -p ~/work/aur ; cd ~/work/aur
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg
+sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
 
-  nano ~/.xinitrc
-  #add two lines to new file
-  export DESKTOP_SESSION=plasma
-  /usr/lib/plasma-dbus-run-session-if-needed startplasma-x11
+yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
+yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
 
-  sudo systemctl enable --now xrdp
+nano ~/.xinitrc
+#add two lines to new file
+export DESKTOP_SESSION=plasma
+/usr/lib/plasma-dbus-run-session-if-needed startplasma-x11
 
-  sudo nano /etc/X11/Xwrapper.config
-  # Should say:
-  allowed_users = anybody
+sudo systemctl enable --now xrdp
 
-  sudo ufw allow 3389
+sudo nano /etc/X11/Xwrapper.config
+# Should say:
+allowed_users = anybody
 
-  sudo reboot    #don't have to reboot but makes a better test
+sudo ufw allow 3389
 
-  #Microsoft remote desktop can access linux desktop now
+sudo reboot    #don't have to reboot but makes a better test
 
-  #Try to get sound redirection working
+#Microsoft remote desktop can access linux desktop now
 
-  mkdir ~/Downloads
-  cd ~/Downloads
-  git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
-  cd ~/Downloads/pipewire-module-xrdp
-  ./bootstrap
-  ./configure
-  make
-  sudo make install
+#Try to get sound redirection working
 
-  sudo reboot
+mkdir ~/Downloads
+cd ~/Downloads
+git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+cd ~/Downloads/pipewire-module-xrdp
+./bootstrap
+./configure
+make
+sudo make install
 
-  #check it
-  ps -aux | grep pipewire-module-xrdp
+sudo reboot
 
-  #Sound now works too
+#check it
+ps -aux | grep pipewire-module-xrdp
+
+#Sound now works too
 
   </code></pre>
         
@@ -251,56 +251,56 @@
   <h3><a name="manjaro-xfce-systemd" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Manjaro-XFCE-SystemD using Pacman</h3>
 
   <pre><code>
-  #Refresh/upgrade
-  sudo pacman -Syu
+#Refresh/upgrade
+sudo pacman -Syu
 
-  #Install Yay
-  sudo pacman -S base-devel go
-  mkdir -p ~/work/aur ; cd ~/work/aur
-  su
-  pacman -S git
-  exit
-  git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg
-  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
+#Install Yay
+sudo pacman -S base-devel go
+mkdir -p ~/work/aur ; cd ~/work/aur
+su
+pacman -S git
+exit
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg
+sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
 
-  yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
-  yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
+yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
+yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
 
-  sudo ufw allow from any to any port 3389 proto tcp
-    
-  #I backed up their existing file, and put the one liner file below.
-  nano ~/.xinitrc
-  exec startxfce4
+sudo ufw allow from any to any port 3389 proto tcp
 
-  sudo systemctl enable --now xrdp
+#I backed up their existing file, and put the one liner file below.
+nano ~/.xinitrc
+exec startxfce4
 
-  #These commands were needed on Manjaro since permissions were restrictive
-  sudo chmod 644 /etc/xrdp/cert.pem 
-  sudo chmod 640 /etc/xrdp/key.pem 
+sudo systemctl enable --now xrdp
 
-  sudo reboot    #don't have to reboot but makes a better test
+#These commands were needed on Manjaro since permissions were restrictive
+sudo chmod 644 /etc/xrdp/cert.pem 
+sudo chmod 640 /etc/xrdp/key.pem 
 
-  #Microsoft remote desktop can access linux desktop now
+sudo reboot    #don't have to reboot but makes a better test
 
-  #Try to get sound redirection working
+#Microsoft remote desktop can access linux desktop now
 
-  mkdir ~/Downloads
-  cd ~/Downloads
-  git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
-  cd ~/Downloads/pipewire-module-xrdp
-  ./bootstrap
-  ./configure
-  make
-  sudo make install
+#Try to get sound redirection working
 
-  sudo reboot
+mkdir ~/Downloads
+cd ~/Downloads
+git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+cd ~/Downloads/pipewire-module-xrdp
+./bootstrap
+./configure
+make
+sudo make install
 
-  #check it
-  ps -aux | grep pipewire-module-xrdp
+sudo reboot
 
-  #Sound now works too
+#check it
+ps -aux | grep pipewire-module-xrdp
+
+#Sound now works too
 
   </code></pre>
 
@@ -312,24 +312,24 @@
 
   <pre><code>
 
-  sudo apt update
+sudo apt update
 
-  sudo ufw allow from any to any port 3389 proto tcp
+sudo ufw allow from any to any port 3389 proto tcp
 
-  sudo apt install xrdp
-  sudo apt install xorgxrdp
+sudo apt install xrdp
+sudo apt install xorgxrdp
 
-  #Needed for Mint
-  sudo adduser xrdp ssl-cert
+#Needed for Mint
+sudo adduser xrdp ssl-cert
 
-  sudo systemctl enable xrdp
+sudo systemctl enable xrdp
 
-  sudo reboot
+sudo reboot
 
-  #RDP works now
-  #Didn't need to do anything special for sound, it just works.
+#RDP works now
+#Didn't need to do anything special for sound, it just works.
 
-  #You can tell xrdp is installed more completely by the xrdp team for this distro!
+#You can tell xrdp is installed more completely by the xrdp team for this distro!
 
   </code></pre>
 
@@ -340,48 +340,48 @@
 
   <pre><code>
 
-  #open ports
-  sudo ufw allow from any to any port 3389 proto tcp
-  sudo ufw status
+#open ports
+sudo ufw allow from any to any port 3389 proto tcp
+sudo ufw status
 
-  #install xrdp software
-  sudo apt install -y xrdp xorgxrdp
+#install xrdp software
+sudo apt install -y xrdp xorgxrdp
 
-  #Needed for linux mx
-  sudo nano /etc/xrdp/startwm.sh
-  #test -x /etc/X11/Xsession && exec /etc/X11/Xsession
-  #exec /bin/sh /etc/X11/Xsession
-  startxfce4
+#Needed for linux mx
+sudo nano /etc/xrdp/startwm.sh
+#test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+#exec /bin/sh /etc/X11/Xsession
+startxfce4
 
-  sudo service xrdp restart
+sudo service xrdp restart
 
-  #Can use MX Service Manager in DE to see which services are enabled - very useful
+#Can use MX Service Manager in DE to see which services are enabled - very useful
 
-  sudo reboot
+sudo reboot
 
-  #setup sound
+#setup sound
 
-  sudo apt install pulseaudio
-  ps -aux | grep pulse*
+sudo apt install pulseaudio
+ps -aux | grep pulse*
 
-  sudo apt install build-essential dpkg-dev libpulse-dev git autoconf libtool
-  cd ~
-  git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git
-  cd ~/pulseaudio-module-xrdp
-  scripts/install_pulseaudio_sources_apt_wrapper.sh    #PULSE_DIR=/home/user/pulseaudio.src
-  ./bootstrap && ./configure PULSE_DIR=~/pulseaudio.src
-  make
-  sudo make install
-  #Below command works after the above is installed
-  ls $(pkg-config --variable=modlibexecdir libpulse) | grep xrdp                       #If the module-xrdp-sink.so and module-xrdp-source.so are listed, this means that the PulseAudio modules have been properly built and installed on your system
+sudo apt install build-essential dpkg-dev libpulse-dev git autoconf libtool
+cd ~
+git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git
+cd ~/pulseaudio-module-xrdp
+scripts/install_pulseaudio_sources_apt_wrapper.sh    #PULSE_DIR=/home/user/pulseaudio.src
+./bootstrap && ./configure PULSE_DIR=~/pulseaudio.src
+make
+sudo make install
+#Below command works after the above is installed
+ls $(pkg-config --variable=modlibexecdir libpulse) | grep xrdp                       #If the module-xrdp-sink.so and module-xrdp-source.so are listed, this means that the PulseAudio modules have been properly built and installed on your system
 
-  ps -aux | grep pulse
+ps -aux | grep pulse
 
-  sudo reboot
+sudo reboot
 
-  #Sound is working with pulseaudio
-  #Some glitchyness with audio/video
-  #Need to test more and see if we can use pipewire instead of pulseaudio. These steps need refinement!
+#Sound is working with pulseaudio
+#Some glitchyness with audio/video
+#Need to test more and see if we can use pipewire instead of pulseaudio. These steps need refinement!
 
   </code></pre>
 
@@ -392,33 +392,33 @@
 
   <pre><code>
 
-  #Install git
-  sudo pacman -Syu git
+#Install git
+sudo pacman -Syu git
 
-  #Install Yay
-  sudo pacman -S base-devel go
-  mkdir -p ~/work/aur ; cd ~/work/aur
-  git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg
-  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
+#Install Yay
+sudo pacman -S base-devel go
+mkdir -p ~/work/aur ; cd ~/work/aur
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg
+sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
 
-  #Install xrdp
-  yay xrdp
-  yay xorgxrdp
+#Install xrdp
+yay xrdp
+yay xorgxrdp
 
-  #Manually start these processes
-  sudo /usr/bin/xrdp-sesman
-  sudo /usr/bin/xrdp
+#Manually start these processes
+sudo /usr/bin/xrdp-sesman
+sudo /usr/bin/xrdp
 
-  #check on them
-  ps -aux | grep xrdp-sesman
-  ps -aux | grep xrdp
+#check on them
+ps -aux | grep xrdp-sesman
+ps -aux | grep xrdp
 
-  nano ~/.xinitrc
-  exec startxfce4      #add this line to new file if using xfce
+nano ~/.xinitrc
+exec startxfce4      #add this line to new file if using xfce
 
-  #xrdp works now, audio not working yet
+#xrdp works now, audio not working yet
 
   </code></pre>
 
@@ -430,17 +430,17 @@
 
   <pre><code>
 
-  sudo zypper install xrdp xorgxrdp
-  sudo systemctl enable xrdp
-  sudo systemctl start xrdp
+sudo zypper install xrdp xorgxrdp
+sudo systemctl enable xrdp
+sudo systemctl start xrdp
 
-  sudo systemctl status firewalld
-  sudo firewall-cmd --permanent --zone=public --add-port=3389/tcp
-  sudo firewall-cmd --reload
+sudo systemctl status firewalld
+sudo firewall-cmd --permanent --zone=public --add-port=3389/tcp
+sudo firewall-cmd --reload
 
-  echo "xfce4-session" > ~/.xsession
+echo "xfce4-session" > ~/.xsession
 
-  #Need to retest these and add audio instructions  
+#Need to retest these and add audio instructions  
 
   </code></pre>
 
@@ -453,32 +453,32 @@
 
   <pre><code>
 
-  sudo apt update
+sudo apt update
 
-  sudo apt install xrdp
-  sudo apt install xorgxrdp
+sudo apt install xrdp
+sudo apt install xorgxrdp
 
-  sudo reboot
+sudo reboot
 
-  #xrdp works with those few commands above, but sound not working yet
+#xrdp works with those few commands above, but sound not working yet
 
-  pactl    info          #says pulseaudio, so debian still using pulseaudio
+pactl    info          #says pulseaudio, so debian still using pulseaudio
 
-  sudo apt install build-essential dpkg-dev libpulse-dev git autoconf libtool
-  cd ~
-  git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git
-  cd ~/pulseaudio-module-xrdp
-  scripts/install_pulseaudio_sources_apt_wrapper.sh    #Output shows: PULSE_DIR=/home/user/pulseaudio.src
-  ./bootstrap && ./configure PULSE_DIR=~/pulseaudio.src
-  make
-  sudo make install
-  ls $(pkg-config --variable=modlibexecdir libpulse) | grep xrdp
-  #If the module-xrdp-sink.so and module-xrdp-source.so are listed then
-  #this means that the PulseAudio modules have been properly built and installed on your system
+sudo apt install build-essential dpkg-dev libpulse-dev git autoconf libtool
+cd ~
+git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git
+cd ~/pulseaudio-module-xrdp
+scripts/install_pulseaudio_sources_apt_wrapper.sh    #Output shows: PULSE_DIR=/home/user/pulseaudio.src
+./bootstrap && ./configure PULSE_DIR=~/pulseaudio.src
+make
+sudo make install
+ls $(pkg-config --variable=modlibexecdir libpulse) | grep xrdp
+#If the module-xrdp-sink.so and module-xrdp-source.so are listed then
+#this means that the PulseAudio modules have been properly built and installed on your system
 
-  sudo reboot
+sudo reboot
 
-  #audio works now too
+#audio works now too
 
   </code></pre>
 
@@ -490,17 +490,17 @@
 
   <pre><code>
 
-  sudo apt update
+sudo apt update
 
-  sudo apt install xrdp
+sudo apt install xrdp
 
-  sudo adduser xrdp ssl-cert
+sudo adduser xrdp ssl-cert
 
-  sudo reboot
+sudo reboot
 
-  #xrdp works
-  #sound works too
-  #another distro with install support that makes xrdp install easy
+#xrdp works
+#sound works too
+#another distro with install support that makes xrdp install easy
 
   </code></pre>
 
@@ -512,49 +512,49 @@
 
   <pre><code>
 
-  #Refresh/upgrade
-  sudo pacman -Syu
+#Refresh/upgrade
+sudo pacman -Syu
 
-  #Install Yay
-  sudo pacman -S base-devel go
-  mkdir -p ~/work/aur ; cd ~/work/aur
+#Install Yay
+sudo pacman -S base-devel go
+mkdir -p ~/work/aur ; cd ~/work/aur
 
-  sudo pacman -S git    #if needed
+sudo pacman -S git    #if needed
 
-  git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg
-  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg
+sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
 
-  yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
-  yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
+yay xrdp       #choose 1 aur/xrdp, choose A for ALL, N for dont show diffs, N for remove dependencies, Y to proceed, Y to install
+yay xorgxrdp   #choose 1 aur/xorgxrdp, same stuff again as above, Y to generate keys
 
-  nano ~/.xinitrc
-  exec gnome-session      #add this line to new file
+nano ~/.xinitrc
+exec gnome-session      #add this line to new file
 
-  sudo systemctl enable --now xrdp
+sudo systemctl enable --now xrdp
 
-  sudo reboot    #don't have to reboot but makes a better test
+sudo reboot    #don't have to reboot but makes a better test
 
-  #Microsoft remote desktop can access linux desktop now
+#Microsoft remote desktop can access linux desktop now
 
-  #Try to get sound redirection working
+#Try to get sound redirection working
 
-  mkdir ~/Downloads
-  cd ~/Downloads
-  git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
-  cd ~/Downloads/pipewire-module-xrdp
-  ./bootstrap
-  ./configure
-  make
-  sudo make install
+mkdir ~/Downloads
+cd ~/Downloads
+git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+cd ~/Downloads/pipewire-module-xrdp
+./bootstrap
+./configure
+make
+sudo make install
 
-  sudo reboot
+sudo reboot
 
-  #check it
-  ps -aux | grep pipewire-module-xrdp
+#check it
+ps -aux | grep pipewire-module-xrdp
 
-  #Sound now works too
+#Sound now works too
 
   </code></pre>
 
@@ -567,99 +567,99 @@
 
   <pre><code>
 
-  #Install git
-  sudo pacman -Syu git
+#Install git
+sudo pacman -Syu git
 
-  #Install Yay
-  sudo pacman -S base-devel go
-  mkdir -p ~/work/aur ; cd ~/work/aur
-  git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg
-  sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
+#Install Yay
+sudo pacman -S base-devel go
+mkdir -p ~/work/aur ; cd ~/work/aur
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg
+sudo pacman -U yay-12.4.2-1-x86_64.pkg.tar.zst
 
-  #Install xrdp
-  yay xrdp
-  yay xorgxrdp
+#Install xrdp
+yay xrdp
+yay xorgxrdp
 
-  su
+su
 
-  #template - setup run script
-  mkdir /etc/runit/sv/template
-  cat <<EOF > /etc/runit/sv/template/run
-  #!/bin/sh -e
-  exec 2>&1
-  exec chpst -u USER COMMAND
-  EOF
+#template - setup run script
+mkdir /etc/runit/sv/template
+cat <<EOF > /etc/runit/sv/template/run
+#!/bin/sh -e
+exec 2>&1
+exec chpst -u USER COMMAND
+EOF
 
-  chmod +x /etc/runit/sv/template/run
+chmod +x /etc/runit/sv/template/run
 
-  #template - setup log script
-  mkdir /etc/runit/sv/template/log
-  cat <<EOF > /etc/runit/sv/template/log/run
-  #!/bin/sh
-  exec chpst -u USER svlogd -tt LOGDIR
-  EOF
+#template - setup log script
+mkdir /etc/runit/sv/template/log
+cat <<EOF > /etc/runit/sv/template/log/run
+#!/bin/sh
+exec chpst -u USER svlogd -tt LOGDIR
+EOF
 
-  chmod +x /etc/runit/sv/template/log/run
+chmod +x /etc/runit/sv/template/log/run
 
-  #copy template file/dirs
-  cp -R /etc/runit/sv/template /etc/runit/sv/xrdp-sesman
-  cp -R /etc/runit/sv/template /etc/runit/sv/xrdp
- 
-  cat <<EOF > /etc/runit/sv/xrdp-sesman/run
-  #!/bin/sh -e
-  exec 2>&1
-  exec chpst -u root /usr/bin/xrdp-sesman
-  EOF
+#copy template file/dirs
+cp -R /etc/runit/sv/template /etc/runit/sv/xrdp-sesman
+cp -R /etc/runit/sv/template /etc/runit/sv/xrdp
 
-  cat <<EOF > /etc/runit/sv/xrdp/run
-  #!/bin/sh -e
-  exec 2>&1
-  exec chpst -u root /usr/bin/xrdp
-  EOF
+cat <<EOF > /etc/runit/sv/xrdp-sesman/run
+#!/bin/sh -e
+exec 2>&1
+exec chpst -u root /usr/bin/xrdp-sesman
+EOF
 
-  cat <<EOF > /etc/runit/sv/xrdp-sesman/log/run
-  #!/bin/sh
-  exec chpst -u root svlogd -tt /var/log/xrdp-sesman.log
-  EOF
+cat <<EOF > /etc/runit/sv/xrdp/run
+#!/bin/sh -e
+exec 2>&1
+exec chpst -u root /usr/bin/xrdp
+EOF
 
-  cat <<EOF > /etc/runit/sv/xrdp/log/run
-  #!/bin/sh
-  exec chpst -u root svlogd -tt /var/log/xrdp.log
-  EOF
+cat <<EOF > /etc/runit/sv/xrdp-sesman/log/run
+#!/bin/sh
+exec chpst -u root svlogd -tt /var/log/xrdp-sesman.log
+EOF
 
-  sudo ln -s /etc/runit/sv/xrdp-sesman /var/run/runit/service/xrdp-sesman
-  sudo ln -s /etc/runit/sv/xrdp /var/run/runit/service/xrdp
+cat <<EOF > /etc/runit/sv/xrdp/log/run
+#!/bin/sh
+exec chpst -u root svlogd -tt /var/log/xrdp.log
+EOF
 
-  #To check logs on the two processes
-  #tail -f /var/log/xrdp-sesman.log
-  #tail -f /var/log/xrdp.log
+sudo ln -s /etc/runit/sv/xrdp-sesman /var/run/runit/service/xrdp-sesman
+sudo ln -s /etc/runit/sv/xrdp /var/run/runit/service/xrdp
 
-  sudo rm -f /var/run/xrdp.pid
-  sudo rm -f /var/run/xrdp-sesman.pid
-  
-  #to stop service
-  #sv stop xrdp-sesman
-  #sv stop xrdp
+#To check logs on the two processes
+#tail -f /var/log/xrdp-sesman.log
+#tail -f /var/log/xrdp.log
 
-  #to remove service
-  #sudo rm /var/run/runit/service/xrdp-sesman
-  #sudo rm /var/run/runit/service/xrdp
+sudo rm -f /var/run/xrdp.pid
+sudo rm -f /var/run/xrdp-sesman.pid
 
-  #check on them
-  ps -aux | grep xrdp-sesman
-  ps -aux | grep xrdp
+#to stop service
+#sv stop xrdp-sesman
+#sv stop xrdp
 
-  exit
+#to remove service
+#sudo rm /var/run/runit/service/xrdp-sesman
+#sudo rm /var/run/runit/service/xrdp
 
-  cat <<EOF > ~/.xinitrc
-  exec startxfce4
-  EOF
+#check on them
+ps -aux | grep xrdp-sesman
+ps -aux | grep xrdp
 
-  #xrdp works now
+exit
 
-  #sound not working here
+cat <<EOF > ~/.xinitrc
+exec startxfce4
+EOF
+
+#xrdp works now
+
+#sound not working here
   
   </code></pre>
 
