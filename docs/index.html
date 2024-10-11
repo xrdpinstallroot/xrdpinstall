@@ -665,6 +665,40 @@ EOF
 
 
         
+
+<h3><a class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Fedora Workstation 40-Gnome-SystemD using dnf install</h3>
+
+  <pre><code>
+sudo dnf install xrdp
+
+sudo systemctl enable xrdp
+
+sudo reboot
+
+#xrdp works now
+
+sudo dnf install dpkg-dev autoconf libtool
+sudo dnf install pipewire-devel
+
+cd ~/Downloads
+git clone https://github.com/neutrinolabs/pipewire-module-xrdp.git --recursive
+cd ~/Downloads/pipewire-module-xrdp
+./bootstrap
+./configure
+make
+sudo make install
+
+sudo reboot
+
+#sound works now
+
+#video/sound performance poor with fedora
+  
+  </code></pre>
+
+
+
+
         
         
   <h3><a class="anchor" href="#contact-me"><span class="octicon octicon-link"></span></a>Contact:</h3>
